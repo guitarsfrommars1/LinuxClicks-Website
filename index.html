@@ -28,8 +28,9 @@
             <div class="hero-content">
                 <h1 class="hero-title">The AI-Driven OS<br><span class="accent">That Just Works</span></h1>
                 <p class="hero-description">Experience the future of computing with LinuxClicks - an intelligent Linux distribution that adapts to your needs, automates complex tasks, and delivers unparalleled performance.</p>
+                <p class="development-notice">LinuxClicks is currently under active development</p>
                 <div class="hero-actions">
-                    <a href="#download" class="btn btn-primary">Download Now</a>
+                    <button class="btn btn-disabled" disabled>Coming Soon</button>
                     <a href="#features" class="btn btn-secondary">Explore Features</a>
                 </div>
             </div>
@@ -45,12 +46,29 @@
                     <div class="terminal-body">
                         <div class="terminal-line">
                             <span class="prompt">user@linuxclicks:~$</span>
-                            <span class="command">linuxclicks --ai-assist</span>
+                            <span class="command">bugreport --new</span>
                         </div>
                         <div class="terminal-line">
-                            <span class="ai-response">AI: Ready to assist. What would you like to accomplish?</span>
+                            <span class="bug-report-header">Bug Report Interface v1.0</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="bug-report-text">Priority: [ ] Critical  [x] Normal  [ ] Low</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="bug-report-text">Category: System | UI | Performance</span>
                         </div>
                         <div class="terminal-cursor">_</div>
+                    </div>
+                </div>
+                
+                <div class="hero-terminal-footer">
+                    <p class="terminal-caption">See a problem? Report a problem!</p>
+                    <div class="hero-newsletter">
+                        <div class="newsletter-checkbox-wrapper">
+                            <input type="checkbox" id="hero-newsletter" class="newsletter-checkbox">
+                            <label for="hero-newsletter" class="newsletter-label">Join our newsletter - Be alerted to the LinuxClicks launch date</label>
+                        </div>
+                        <input type="email" placeholder="your@email.com (optional)" class="hero-email-input">
                     </div>
                 </div>
             </div>
