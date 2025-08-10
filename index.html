@@ -6,11 +6,278 @@
     <title>LinuxClicks - The AI-Driven OS That Just Works</title>
     <meta name="description" content="LinuxClicks is an AI-driven Linux operating system designed for simplicity and power. Experience the future of computing with DiveIn screenshot tool and Driver Genie.">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Image gallery styling - CENTERED VERTICALLY */
+        .image-gallery-section {
+            background: #0a0f14;
+            min-height: 320px; /* Reduced from 400px to drop content down */
+            padding-top: 100px; /* Added top padding to clear the header */
+            display: flex;
+            flex-direction: column; /* Stack gallery and tagline vertically */
+            align-items: center; /* Center horizontally */
+            justify-content: center; /* Center vertically */
+            gap: 30px; /* Space between frames and tagline */
+        }
+        
+        .image-gallery {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1200px;
+            padding: 0 40px;
+        }
+        
+        .gallery-tagline {
+            color: #00bfff;
+            font-size: 32px; /* Increased from 24px */
+            font-weight: bold;
+            font-style: italic;
+            text-align: center;
+            text-shadow: 0 0 8px #00bfff;
+            letter-spacing: 2px; /* Added tasteful letter spacing */
+            margin: 0;
+        }
+        
+        .image-frame {
+            width: 356px;
+            height: 200px;
+            border: 2px solid #00bfff;
+            border-radius: 12px;
+            background: rgba(35, 39, 46, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00bfff;
+            font-weight: bold;
+            font-size: 18px;
+            text-shadow: 0 0 8px #00bfff;
+            box-shadow: 0 0 12px rgba(0, 191, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .image-frame:hover {
+            box-shadow: 0 0 20px rgba(0, 191, 255, 0.5);
+            transform: translateY(-2px);
+        }
+        
+        .image-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* Header and navigation styling */
+        .nav-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-icon {
+            height: 48px;
+            width: 48px;
+            margin-right: 12px;
+        }
+
+        /* Hero section balance and centering */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 40px;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+        
+        .hero-content {
+            flex: 1;
+            padding-right: 20px;
+        }
+        
+        .hero-visual {
+            flex: 1;
+            padding-left: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Enhanced styling for the hero terminal section */
+        .hero-terminal-footer {
+            margin-top: 24px;
+            padding: 20px;
+            background: rgba(35, 39, 46, 0.8);
+            border-radius: 12px;
+            border: 1px solid #00bfff;
+        }
+        
+        .terminal-caption {
+            color: #00bfff;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 16px;
+            text-align: center;
+            text-shadow: 0 0 8px #00bfff;
+        }
+        
+        .hero-newsletter {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .newsletter-checkbox-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .newsletter-checkbox {
+            accent-color: #00bfff;
+            transform: scale(1.2);
+        }
+        
+        .newsletter-label {
+            color: #aee6ff;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        
+        .hero-email-input {
+            background: #181c22;
+            border: 2px solid #00bfff;
+            border-radius: 8px;
+            padding: 10px 12px;
+            color: #f0f8ff;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .hero-email-input:focus {
+            outline: none;
+            border-color: #00aaff;
+            box-shadow: 0 0 12px rgba(0, 191, 255, 0.3);
+        }
+        
+        .hero-email-input::placeholder {
+            color: #666;
+        }
+        
+        .btn-disabled {
+            background: #333;
+            color: #666;
+            border: 2px solid #555;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+        
+        .development-notice {
+            color: #00bfff;
+            font-style: italic;
+            margin: 10px 0;
+            text-shadow: 0 0 6px #00bfff;
+        }
+
+        /* Bug report window styling */
+        .bug-report-window {
+            background: #23272e;
+            border-radius: 12px;
+            border: 2px solid #00bfff;
+            overflow: hidden;
+        }
+        
+        .window-title {
+            color: #00bfff;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            flex: 1;
+        }
+        
+        .bug-report-body {
+            padding: 20px;
+            background: #181c22;
+        }
+        
+        .bug-textarea {
+            width: 100%;
+            background: #0a0f14;
+            border: 2px solid #00bfff;
+            border-radius: 8px;
+            padding: 12px;
+            color: #aee6ff;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            resize: vertical;
+            margin-bottom: 12px;
+        }
+        
+        .bug-textarea:focus {
+            outline: none;
+            border-color: #00aaff;
+            box-shadow: 0 0 12px rgba(0, 191, 255, 0.3);
+        }
+        
+        .bug-textarea::placeholder {
+            color: #666;
+        }
+        
+        .bug-submit, .newsletter-submit {
+            background: #00bfff;
+            color: #0a0f14;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .bug-submit:hover, .newsletter-submit:hover {
+            background: #0099cc;
+            transform: translateY(-2px);
+        }
+        
+        .hero-newsletter-form {
+            width: 100%;
+        }
+        
+        .newsletter-submit {
+            margin-top: 8px;
+            width: 100%;
+        }
+        
+        /* Responsive design for smaller screens */
+        @media (max-width: 768px) {
+            .image-gallery-section {
+                padding-top: 120px; /* Adjusted for mobile header */
+            }
+            
+            .image-gallery {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+                padding: 0 20px;
+            }
+            
+            .hero {
+                flex-direction: column;
+                padding: 40px 20px;
+                gap: 40px;
+            }
+            
+            .hero-content,
+            .hero-visual {
+                padding: 0;
+            }
+        }
+    </style>
 </head>
 <body>
     <header class="header">
         <nav class="nav">
             <div class="nav-brand">
+                <img src="Images/Linux Clicks Logo Laptop 1.png" alt="LinuxClicks Logo" class="logo-icon">
                 <h1 class="logo">LinuxClicks</h1>
             </div>
             <ul class="nav-menu">
@@ -23,6 +290,22 @@
     </header>
 
     <main>
+        <!-- Image Gallery Section - NOW WITH PERFECT TAGLINE -->
+        <section class="image-gallery-section">
+            <div class="image-gallery">
+                <div class="image-frame">
+                    <img src="Images/Linux Clicks Bar Frame 1 small.png" alt="LinuxClicks Interface Screenshot">
+                </div>
+                <div class="image-frame">
+                    <img src="Images/Linux Clicks Bar Frame 2small.png" alt="LinuxClicks Features Screenshot">
+                </div>
+                <div class="image-frame">
+                    <img src="Images/Linux Clicks Bar Frame 3 small.png" alt="LinuxClicks Desktop Screenshot">
+                </div>
+            </div>
+            <p class="gallery-tagline">When LinuxClicks-LinuxSticks</p>
+        </section>
+
         <!-- Hero Section -->
         <section class="hero">
             <div class="hero-content">
@@ -35,41 +318,41 @@
                 </div>
             </div>
             <div class="hero-visual">
-                <div class="terminal-window">
+                <div class="bug-report-window">
                     <div class="terminal-header">
                         <div class="terminal-buttons">
                             <span class="btn-close"></span>
                             <span class="btn-minimize"></span>
                             <span class="btn-maximize"></span>
                         </div>
+                        <div class="window-title">Bug Report</div>
                     </div>
-                    <div class="terminal-body">
-                        <div class="terminal-line">
-                            <span class="prompt">user@linuxclicks:~$</span>
-                            <span class="command">bugreport --new</span>
-                        </div>
-                        <div class="terminal-line">
-                            <span class="bug-report-header">Bug Report Interface v1.0</span>
-                        </div>
-                        <div class="terminal-line">
-                            <span class="bug-report-text">Priority: [ ] Critical  [x] Normal  [ ] Low</span>
-                        </div>
-                        <div class="terminal-line">
-                            <span class="bug-report-text">Category: System | UI | Performance</span>
-                        </div>
-                        <div class="terminal-cursor">_</div>
+                    <div class="bug-report-body">
+                        <form action="mailto:guitarsfrommars1@gmail.com" method="post" enctype="text/plain">
+                            <textarea 
+                                name="bug_description" 
+                                placeholder="Describe the issue you encountered..." 
+                                rows="4" 
+                                class="bug-textarea"
+                                required>
+                            </textarea>
+                            <button type="submit" class="btn btn-primary bug-submit">Submit Report</button>
+                        </form>
                     </div>
                 </div>
                 
                 <div class="hero-terminal-footer">
                     <p class="terminal-caption">See a problem? Report a problem!</p>
-                    <div class="hero-newsletter">
-                        <div class="newsletter-checkbox-wrapper">
-                            <input type="checkbox" id="hero-newsletter" class="newsletter-checkbox">
-                            <label for="hero-newsletter" class="newsletter-label">Join our newsletter - Be alerted to the LinuxClicks launch date</label>
+                    <form class="hero-newsletter-form" action="mailto:guitarsfrommars1@gmail.com" method="post" enctype="text/plain">
+                        <div class="hero-newsletter">
+                            <div class="newsletter-checkbox-wrapper">
+                                <input type="checkbox" id="hero-newsletter" name="newsletter_signup" class="newsletter-checkbox">
+                                <label for="hero-newsletter" class="newsletter-label">Join our newsletter - Be alerted to the LinuxClicks launch date</label>
+                            </div>
+                            <input type="email" name="email_address" placeholder="your@email.com (optional)" class="hero-email-input">
+                            <button type="submit" class="btn btn-primary newsletter-submit">Subscribe</button>
                         </div>
-                        <input type="email" placeholder="your@email.com (optional)" class="hero-email-input">
-                    </div>
+                    </form>
                 </div>
             </div>
         </section>
@@ -116,7 +399,7 @@
                     </div>
                     <div class="about-stats">
                         <div class="stat">
-                            <div class="stat-number">99.9%</div>
+                            <div class="stat-number">Superior</div>
                             <div class="stat-label">Hardware Compatibility</div>
                         </div>
                         <div class="stat">
