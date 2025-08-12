@@ -7,16 +7,14 @@
     <meta name="description" content="LinuxClicks is an AI-driven Linux operating system designed for simplicity and power. Experience the future of computing with DiveIn screenshot tool and Driver Genie.">
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Image gallery styling - CENTERED VERTICALLY */
+        /* Image gallery styling - TIGHTENED AND CENTERED */
         .image-gallery-section {
             background: #0a0f14;
-            min-height: 320px; /* Reduced from 400px to drop content down */
-            padding-top: 100px; /* Added top padding to clear the header */
+            min-height: 280px; /* Reduced height for tighter spacing */
+            padding: 80px 0 40px 0; /* Reduced padding for tighter boundaries */
             display: flex;
-            flex-direction: column; /* Stack gallery and tagline vertically */
-            align-items: center; /* Center horizontally */
-            justify-content: center; /* Center vertically */
-            gap: 30px; /* Space between frames and tagline */
+            align-items: center; /* Center the photo gallery vertically */
+            justify-content: center; /* Center horizontally */
         }
         
         .image-gallery {
@@ -27,15 +25,9 @@
             padding: 0 40px;
         }
         
+        /* Remove the old gallery tagline styling since we moved it */
         .gallery-tagline {
-            color: #00bfff;
-            font-size: 32px; /* Increased from 24px */
-            font-weight: bold;
-            font-style: italic;
-            text-align: center;
-            text-shadow: 0 0 8px #00bfff;
-            letter-spacing: 2px; /* Added tasteful letter spacing */
-            margin: 0;
+            display: none; /* Hide the old tagline */
         }
         
         .image-frame {
@@ -79,14 +71,49 @@
             margin-right: 12px;
         }
 
-        /* Hero section balance and centering */
+        /* Hero section styling adjustments - FLEXIBLE SPACING */
         .hero {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 80px 40px;
+            padding: 20px 40px; /* Much tighter - reduced from 40px */
             display: flex;
             align-items: center;
             gap: 60px;
+            min-height: auto; /* Remove any height constraints */
+        }
+        
+        .hero-content {
+            flex: 1;
+            padding-right: 20px;
+        }
+        
+        .hero-title {
+            font-size: 48px;
+            line-height: 1.1;
+            margin-bottom: 20px; /* Reduced margin */
+            text-align: center;
+        }
+        
+        .hero-description {
+            margin: 15px 0; /* Tighter margins around description */
+        }
+        
+        /* New dedicated tagline block */
+        .tagline-block {
+            background: #0a0f14;
+            width: 100%;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .tagline-text {
+            color: #00bfff;
+            font-size: 42px;
+            font-weight: bold;
+            font-style: italic;
+            text-shadow: 0 0 12px #00bfff;
+            letter-spacing: 3px;
+            margin: 0;
         }
         
         .hero-content {
@@ -274,10 +301,10 @@
     </style>
 </head>
 <body>
-    <header class="header">
+            <header class="header">
         <nav class="nav">
             <div class="nav-brand">
-                <img src="Images/Linux Clicks Logo Laptop 1.png" alt="LinuxClicks Logo" class="logo-icon">
+                <img src="./Images/Linux Clicks Logo Laptop 1.png" alt="LinuxClicks Logo" class="logo-icon">
                 <h1 class="logo">LinuxClicks</h1>
             </div>
             <ul class="nav-menu">
@@ -289,28 +316,36 @@
         </nav>
     </header>
 
+    <!-- SPACER TO FORCE SEPARATION -->
+    <div style="height: 60px; background: transparent;"></div>
+
     <main>
         <!-- Image Gallery Section - NOW WITH PERFECT TAGLINE -->
         <section class="image-gallery-section">
             <div class="image-gallery">
                 <div class="image-frame">
-                    <img src="Images/Linux Clicks Bar Frame 1 small.png" alt="LinuxClicks Interface Screenshot">
+                    <img src="./Images/Linux Clicks Bar Frame 1 small.png" alt="LinuxClicks Interface Screenshot">
                 </div>
                 <div class="image-frame">
-                    <img src="Images/Linux Clicks Bar Frame 2small.png" alt="LinuxClicks Features Screenshot">
+                    <img src="./Images/Linux Clicks Bar Frame 2small.png" alt="LinuxClicks Features Screenshot">
                 </div>
                 <div class="image-frame">
-                    <img src="Images/Linux Clicks Bar Frame 3 small.png" alt="LinuxClicks Desktop Screenshot">
+                    <img src="./Images/Linux Clicks Bar Frame 3 small.png" alt="LinuxClicks Desktop Screenshot">
                 </div>
             </div>
             <p class="gallery-tagline">When LinuxClicks-LinuxSticks</p>
         </section>
 
+        <!-- Dedicated Tagline Block -->
+        <section class="tagline-block">
+            <p class="tagline-text">When LinuxClicks-LinuxSticks</p>
+        </section>
+
         <!-- Hero Section -->
         <section class="hero">
             <div class="hero-content">
-                <h1 class="hero-title">The AI-Driven OS<br><span class="accent">That Just Works</span></h1>
-                <p class="hero-description">Experience the future of computing with LinuxClicks - an intelligent Linux distribution that adapts to your needs, automates complex tasks, and delivers unparalleled performance.</p>
+                <h1 class="hero-title">OS Becomes OI<br><span class="accent">Operating System<br>Becomes<br>Open Invitation</span></h1>
+                <p class="hero-description">Experience the future with LinuxClicks. This intelligent Linux distro is adaptive and intuitive. That other system? It's a bought and paid for clunker that you never really own. LinuxClicks is AI engineered and human approved. It's FREE. Let's Roll.</p>
                 <p class="development-notice">LinuxClicks is currently under active development</p>
                 <div class="hero-actions">
                     <button class="btn btn-disabled" disabled>Coming Soon</button>
@@ -539,7 +574,7 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <h3>LinuxClicks</h3>
-                    <p>The AI-driven OS that just works</p>
+                    <p>The AI-driven OS/OI that just works</p>
                 </div>
                 <div class="footer-links">
                     <div class="footer-section">
@@ -547,23 +582,13 @@
                         <ul>
                             <li><a href="#features">Features</a></li>
                             <li><a href="#download">Download</a></li>
-                            <li><a href="#">Documentation</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-section">
-                        <h4>Community</h4>
-                        <ul>
-                            <li><a href="#">Forum</a></li>
-                            <li><a href="#">Discord</a></li>
-                            <li><a href="#">GitHub</a></li>
                         </ul>
                     </div>
                     <div class="footer-section">
                         <h4>Support</h4>
                         <ul>
-                            <li><a href="#">Help Center</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Bug Reports</a></li>
+                            <li><a href="mailto:admin@linuxclicks.com">Contact</a></li>
+                            <li><a href="mailto:admin@linuxclicks.com?subject=Bug Report">Bug Reports</a></li>
                         </ul>
                     </div>
                 </div>
