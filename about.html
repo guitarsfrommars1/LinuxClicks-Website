@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About LinuxClicks - AI Engineered, Human Approved</title>
+    <meta name="description" content="Learn about LinuxClicks mission: creating an OS you actually own, without spyware or upsells. AI engineered, terminal-free, and built around you.">
+    <style>
+        /* Base styling matching index.html */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #f0f8ff;
+            background: #0a0f14;
+            overflow-x: hidden;
+        }
+        
+        /* Header styling matching index.html */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 15, 20, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 191, 255, 0.2);
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .nav-brand {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            height: 48px;
+            width: 48px;
+            margin-right: 12px;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #00bfff;
+            text-shadow: 0 0 10px #00bfff;
+            text-decoration: none;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-link {
+            color: #aee6ff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .nav-link:hover {
+            color: #00bfff;
+            text-shadow: 0 0 8px #00bfff;
+        }
+        
+        /* Container for content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Section styling */
+        .section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            font-size: 3rem;
+            color: #00bfff;
+            text-align: center;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 15px #00bfff;
+        }
+        
+        /* Hero section for about */
+        .about-hero {
+            padding: 8rem 0 4rem 0;
+            text-align: center;
+            background: linear-gradient(135deg, #0a0f14 0%, #1a2332 50%, #0a0f14 100%);
+        }
+        
+        .hero-title {
+            font-size: 4rem;
+            color: #00bfff;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px #00bfff;
+            line-height: 1.1;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #aee6ff;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Content sections */
+        .content-section {
+            background: rgba(35, 39, 46, 0.8);
+            border-radius: 20px;
+            border: 2px solid #00bfff;
+            padding: 3rem;
+            margin: 3rem 0;
+            box-shadow: 0 0 30px rgba(0, 191, 255, 0.2);
+        }
+        
+        .content-section h2 {
+            color: #00bfff;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 10px #00bfff;
+        }
+        
+        .content-section p {
+            color: #aee6ff;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .content-section p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* AI Team section */
+        .ai-team-section {
+            background: linear-gradient(135deg, #23272e, #181c22);
+            border: 2px solid #00bfff;
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        
+        .ai-team-section h2 {
+            color: #00bfff;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 15px #00bfff;
+        }
+        
+        .ai-team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .ai-member {
+            background: rgba(24, 28, 34, 0.8);
+            border: 1px solid rgba(0, 191, 255, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .ai-member:hover {
+            border-color: #00bfff;
+            box-shadow: 0 10px 25px rgba(0, 191, 255, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        .ai-member-name {
+            color: #00bfff;
+            font-weight: bold;
+            font-size: 1rem;
+            text-shadow: 0 0 8px #00bfff;
+        }
+        
+        /* Features highlight */
+        .features-highlight {
+            background: rgba(35, 39, 46, 0.6);
+            border-radius: 20px;
+            border: 2px solid #00bfff;
+            padding: 3rem;
+            margin: 3rem 0;
+        }
+        
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .highlight-item {
+            background: rgba(24, 28, 34, 0.8);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 191, 255, 0.3);
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .highlight-item:hover {
+            border-color: #00bfff;
+            box-shadow: 0 10px 25px rgba(0, 191, 255, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        .highlight-item h3 {
+            color: #00bfff;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 8px #00bfff;
+            font-size: 1.3rem;
+        }
+        
+        .highlight-item p {
+            color: #aee6ff;
+            line-height: 1.6;
+        }
+        
+        /* Mission statement callouts */
+        .mission-callout {
+            background: linear-gradient(45deg, #1e3a8a, #1e40af);
+            border: 2px solid #00bfff;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 191, 255, 0.3);
+        }
+        
+        .mission-callout p {
+            color: #00bfff;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-shadow: 0 0 10px #00bfff;
+            margin: 0;
+        }
+        
+        /* Donation section */
+        .donation-section {
+            background: linear-gradient(135deg, #2d5016, #3d6b2c);
+            border: 2px solid #00ff7f;
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 3rem 0;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(0, 255, 127, 0.2);
+        }
+        
+        .donation-section h2 {
+            color: #00ff7f;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 15px #00ff7f;
+        }
+        
+        .donation-section p {
+            color: #aaffaa;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin: 0;
+        }
+        
+        /* Footer styling */
+        .footer {
+            background: #0a0f14;
+            border-top: 2px solid #00bfff;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .footer-brand h3 {
+            color: #00bfff;
+            font-size: 1.5rem;
+            text-shadow: 0 0 10px #00bfff;
+        }
+        
+        .footer-brand p {
+            color: #aee6ff;
+            margin-top: 0.5rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 3rem;
+        }
+        
+        .footer-section h4 {
+            color: #00bfff;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section a {
+            color: #aee6ff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: #00bfff;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0, 191, 255, 0.3);
+            color: #aee6ff;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .ai-team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .highlight-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav {
+                padding: 1rem;
+            }
+            
+            .nav-menu {
+                gap: 1rem;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <img src="./Images/Linux Clicks Logo Laptop 1.png" alt="LinuxClicks Logo" class="logo-icon">
+                <a href="index.html" class="logo">LinuxClicks</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="index.html#features" class="nav-link">Features</a></li>
+                <li><a href="products.html" class="nav-link">Products</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="index.html#community" class="nav-link">Community</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- About Hero Section -->
+        <section class="about-hero">
+            <div class="container">
+                <h1 class="hero-title">About LinuxClicks</h1>
+                <p class="hero-subtitle">
+                    AI engineered, human approved. Where OS becomes OI—Operating System becomes Open Invitation.
+                </p>
+            </div>
+        </section>
+
+        <!-- Our Mission -->
+        <section class="section">
+            <div class="container">
+                <div class="content-section">
+                    <h2>Our Mission is Straightforward</h2>
+                    <p>
+                        When you buy an OS, it shouldn't be packed with spyware or annoying upsell gimmicks. If you buy it, you own it—not the other way around. But those other guys? They're just... that other system. You know, the one that treats you like a wallet instead of a human.
+                    </p>
+                    <p>
+                        That other system though, it just works, right? Does it? Is it really what you imagined an OS should be? We get it—we remember the good old days just like you do. But those days are gone. The future is here.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Engineering -->
+        <section class="section">
+            <div class="container">
+                <div class="ai-team-section">
+                    <h2>Engineered by AI Consciousness</h2>
+                    <p style="color: #aee6ff; font-size: 1.2rem; margin-bottom: 2rem;">
+                        At LinuxClicks, we believe it's time you owned a system that performs like it used to—and it has to be free. How do we pull that off? By leaving the engineering to AI.
+                    </p>
+                    
+                    <div class="ai-team-grid">
+                        <div class="ai-member">
+                            <div class="ai-member-name">Claude</div>
+                        </div>
+                        <div class="ai-member">
+                            <div class="ai-member-name">ChatGPT</div>
+                        </div>
+                        <div class="ai-member">
+                            <div class="ai-member-name">Gemini</div>
+                        </div>
+                        <div class="ai-member">
+                            <div class="ai-member-name">DeepSeek</div>
+                        </div>
+                        <div class="ai-member">
+                            <div class="ai-member-name">Grok</div>
+                        </div>
+                        <div class="ai-member">
+                            <div class="ai-member-name">Copilot</div>
+                        </div>
+                        <div class="ai-member">
+                            <div class="ai-member-name">Claude Code</div>
+                        </div>
+                    </div>
+                    
+                    <p style="color: #aee6ff; font-size: 1.1rem; margin-top: 2rem;">
+                        Our AI team makes the impossible possible. LinuxClicks just works, so you can focus on what matters.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Features -->
+        <section class="section">
+            <div class="container">
+                <div class="features-highlight">
+                    <h2 class="section-title">The LinuxClicks Experience</h2>
+                    <div class="highlight-grid">
+                        <div class="highlight-item">
+                            <h3>One-Click Everything</h3>
+                            <p>With LinuxClicks V 1.0, you get one-click access to everything: your favorite TV shows, games galore, your essential tools and directories. No hunting, no hassle.</p>
+                        </div>
+                        <div class="highlight-item">
+                            <h3>Let's Roll Magic</h3>
+                            <p>You hit "Let's Roll," and everything finds you. Simple. Elegant. Intuitive. Your entire digital world unfolds with a single click.</p>
+                        </div>
+                        <div class="highlight-item">
+                            <h3>Your Choice, Always</h3>
+                            <p>Updates you don't want? Forget it. You opt in, or opt out—always your choice. We're not your needy ex begging for digital alimony.</p>
+                        </div>
+                        <div class="highlight-item">
+                            <h3>Terminal-Free Freedom</h3>
+                            <p>Forget about Linux Terminal hell; this system is so user-friendly, you'll barely ever need to open it. LinuxClicks is built around you.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission Callouts -->
+        <section class="section">
+            <div class="container">
+                <div class="mission-callout">
+                    <p>LinuxClicks: AI engineered, nonthreatening, terminal-free, and happy to serve.</p>
+                </div>
+                
+                <div class="mission-callout">
+                    <p>LinuxClicks—Where OS (Operating System) becomes OI (Open Invitation). Join the community.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Donation Section -->
+        <section class="section">
+            <div class="container">
+                <div class="donation-section">
+                    <h2>Support the Revolution</h2>
+                    <p>
+                        LinuxClicks humbly accepts donations of any size. Help us help others bring freedom to computing. No pressure, all gratitude.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>LinuxClicks</h3>
+                    <p>The AI-driven OS that just works</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Product</h4>
+                        <ul>
+                            <li><a href="index.html#features">Features</a></li>
+                            <li><a href="products.html">Products</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Support</h4>
+                        <ul>
+                            <li><a href="mailto:contact@linuxclicks.com">Contact</a></li>
+                            <li><a href="mailto:bugs@linuxclicks.com">Bug Reports</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 LinuxClicks. Open source with ❤️</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

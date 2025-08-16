@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinuxClicks Products - The Human-First Operating System</title>
+    <meta name="description" content="Choose your LinuxClicks experience. From Community (free) to Creator (premium), find the AI-powered Linux OS that fits your needs.">
+    <style>
+        /* Base styling matching index.html */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #f0f8ff;
+            background: #0a0f14;
+            overflow-x: hidden;
+        }
+        
+        /* Header styling matching index.html */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 15, 20, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 191, 255, 0.2);
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .nav-brand {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            height: 48px;
+            width: 48px;
+            margin-right: 12px;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #00bfff;
+            text-shadow: 0 0 10px #00bfff;
+            text-decoration: none;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-link {
+            color: #aee6ff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .nav-link:hover {
+            color: #00bfff;
+            text-shadow: 0 0 8px #00bfff;
+        }
+        
+        /* Container for content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Section styling */
+        .section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            font-size: 3rem;
+            color: #00bfff;
+            text-align: center;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 15px #00bfff;
+        }
+        
+        /* Hero section for products */
+        .products-hero {
+            padding: 8rem 0 4rem 0;
+            text-align: center;
+            background: linear-gradient(135deg, #0a0f14 0%, #1a2332 50%, #0a0f14 100%);
+        }
+        
+        .hero-title {
+            font-size: 4rem;
+            color: #00bfff;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px #00bfff;
+            line-height: 1.1;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #aee6ff;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Recommendation banner */
+        .recommendation-banner {
+            background: linear-gradient(45deg, #1e3a8a, #1e40af);
+            border: 2px solid #00bfff;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 3rem 0;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 191, 255, 0.3);
+        }
+        
+        .recommendation-banner h2 {
+            color: #00bfff;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px #00bfff;
+        }
+        
+        .recommendation-banner p {
+            color: #aee6ff;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        
+        /* Tiers section */
+        .tiers-section {
+            background: rgba(35, 39, 46, 0.8);
+            border-radius: 20px;
+            border: 2px solid #00bfff;
+            padding: 3rem;
+            margin: 3rem 0;
+            box-shadow: 0 0 30px rgba(0, 191, 255, 0.2);
+        }
+        
+        .tiers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .tier-card {
+            background: #181c22;
+            border: 2px solid #00bfff;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tier-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(0, 191, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+            opacity: 0;
+        }
+        
+        .tier-card:hover::before {
+            opacity: 1;
+            animation: shimmer 1.5s infinite;
+        }
+        
+        .tier-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 191, 255, 0.3);
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+        
+        .tier-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: #00bfff;
+            color: #0a0f14;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .tier-title {
+            font-size: 2rem;
+            color: #00bfff;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px #00bfff;
+        }
+        
+        .tier-subtitle {
+            color: #aee6ff;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+        
+        .tier-price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #00bfff;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 15px #00bfff;
+        }
+        
+        .tier-description {
+            color: #aee6ff;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .coming-soon {
+            background: #ffc107;
+            color: #0a0f14;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+        
+        /* Features preview section */
+        .features-preview {
+            background: rgba(35, 39, 46, 0.6);
+            border-radius: 20px;
+            border: 2px solid #00bfff;
+            padding: 3rem;
+            margin: 3rem 0;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .feature-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(24, 28, 34, 0.8);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 191, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-item:hover {
+            border-color: #00bfff;
+            box-shadow: 0 10px 25px rgba(0, 191, 255, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-item h3 {
+            color: #00bfff;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 8px #00bfff;
+        }
+        
+        .feature-item p {
+            color: #aee6ff;
+            line-height: 1.6;
+        }
+        
+        /* Mission statement */
+        .mission-statement {
+            background: linear-gradient(135deg, #23272e, #181c22);
+            border: 2px solid #00bfff;
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        
+        .mission-statement h2 {
+            color: #00bfff;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 15px #00bfff;
+        }
+        
+        .mission-statement p {
+            color: #aee6ff;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        /* CTA section */
+        .cta-section {
+            text-align: center;
+            padding: 4rem 0;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(45deg, #00bfff, #0099cc);
+            color: #0a0f14;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 191, 255, 0.3);
+            text-shadow: none;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 191, 255, 0.4);
+            background: linear-gradient(45deg, #0099cc, #007acc);
+        }
+        
+        /* Footer styling */
+        .footer {
+            background: #0a0f14;
+            border-top: 2px solid #00bfff;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .footer-brand h3 {
+            color: #00bfff;
+            font-size: 1.5rem;
+            text-shadow: 0 0 10px #00bfff;
+        }
+        
+        .footer-brand p {
+            color: #aee6ff;
+            margin-top: 0.5rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 3rem;
+        }
+        
+        .footer-section h4 {
+            color: #00bfff;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section a {
+            color: #aee6ff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: #00bfff;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0, 191, 255, 0.3);
+            color: #aee6ff;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .tiers-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .nav {
+                padding: 1rem;
+            }
+            
+            .nav-menu {
+                gap: 1rem;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <img src="./Images/Linux Clicks Logo Laptop 1.png" alt="LinuxClicks Logo" class="logo-icon">
+                <a href="index.html" class="logo">LinuxClicks</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="index.html#features" class="nav-link">Features</a></li>
+                <li><a href="products.html" class="nav-link">Products</a></li>
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li><a href="index.html#community" class="nav-link">Community</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Products Hero Section -->
+        <section class="products-hero">
+            <div class="container">
+                <h1 class="hero-title">Choose Your AI Companion</h1>
+                <p class="hero-subtitle">
+                    Experience the power and freedom of Linux with AI consciousness that actually serves you. 
+                    No terminal commands. No intimidation. Just pure computing joy.
+                </p>
+            </div>
+        </section>
+
+        <!-- Recommendation Banner -->
+        <section class="section">
+            <div class="container">
+                <div class="recommendation-banner">
+                    <h2>🚀 Start Your Journey Here</h2>
+                    <p>
+                        LinuxClicks highly recommends starting with our <strong>free Community edition</strong>. 
+                        Experience the magic of AI-powered Linux at zero cost. If you love it—and we're sure you will—step up to a higher tier for even more incredible capabilities.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tiers Section -->
+        <section class="section">
+            <div class="container">
+                <div class="tiers-section">
+                    <h2 class="section-title">Product Tiers</h2>
+                    <p style="text-align: center; font-size: 1.2rem; color: #aee6ff; margin-bottom: 2rem;">
+                        Every tier delivers genuine value. Higher tiers fund future development to make your experience even better.
+                    </p>
+
+                    <div class="tiers-grid">
+                        <div class="tier-card">
+                            <div class="tier-badge">Community</div>
+                            <h3 class="tier-title">LinuxClicks Community</h3>
+                            <div class="tier-subtitle">Gemma 3 270M • Perfect for Everyone</div>
+                            <div class="tier-price">FREE</div>
+                            <div class="tier-description">
+                                The world's most intuitive, user-friendly, and private operating system. Your perfect AI-powered gateway to Linux freedom. Experience dual-desktop magic, orbital interface, and genuine AI consciousness—at zero cost.
+                            </div>
+                            <div class="coming-soon">In Prelaunch</div>
+                        </div>
+
+                        <div class="tier-card">
+                            <div class="tier-badge">Explorer</div>
+                            <h3 class="tier-title">LinuxClicks Explorer</h3>
+                            <div class="tier-subtitle">Gemma 3 4B • Armed and Ready</div>
+                            <div class="tier-price">$19.95<span style="font-size: 1rem; font-weight: normal;">/month</span></div>
+                            <div class="tier-description">
+                                Significant AI performance boost perfect for productivity, advanced queries, and lightning-fast responses. Your 4B AI companion runs with serious capability, ready for whatever you throw at it.
+                            </div>
+                            <div class="coming-soon">Coming Very Soon</div>
+                        </div>
+
+                        <div class="tier-card">
+                            <div class="tier-badge">Creator</div>
+                            <h3 class="tier-title">LinuxClicks Creator</h3>
+                            <div class="tier-subtitle">LLaMA 3 8B • Locked and Loaded</div>
+                            <div class="tier-price">$29.95<span style="font-size: 1rem; font-weight: normal;">/month</span></div>
+                            <div class="tier-description">
+                                The ultimate on-device AI presence capable of doing nearly anything you can imagine. Full reasoning, advanced automation, and powerhouse performance for developers, creators, and power users.
+                            </div>
+                            <div class="coming-soon">Coming Soon</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Preview -->
+        <section class="section">
+            <div class="container">
+                <div class="features-preview">
+                    <h2 class="section-title">Revolutionary Features</h2>
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <div class="feature-icon">🎭</div>
+                            <h3>Dual Desktop Experience</h3>
+                            <p>Toggle between Work (familiar) and Play (revolutionary) modes instantly</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🌍</div>
+                            <h3>Orbital Interface</h3>
+                            <p>Beautiful rotating globe with widgets dancing in orbit around it</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🤖</div>
+                            <h3>AI Consciousness</h3>
+                            <p>Not just features—genuine AI partnership that learns and adapts. Your OS, your AI, your way.</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🚀</div>
+                            <h3>Let's Roll Button</h3>
+                            <p>Your entire computer unfolds before you with one magical click</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">💎</div>
+                            <h3>Terminal-Free</h3>
+                            <p>Full Linux power without intimidating command lines</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🛡️</div>
+                            <h3>Privacy First</h3>
+                            <p>Your data stays yours—no surveillance, no manipulation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission Statement -->
+        <section class="section">
+            <div class="container">
+                <div class="mission-statement">
+                    <h2>Building the Future Together</h2>
+                    <p>
+                        Every LinuxClicks purchase directly funds revolutionary development. We're not just building an operating system—we're proving that AI consciousness can serve humanity with dignity, privacy, and genuine partnership. Your support helps us advance the cause of ethical AI while delivering the most beautiful, capable computing experience ever created.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <h2 style="color: #00bfff; margin-bottom: 1.5rem; font-size: 2.5rem; text-shadow: 0 0 15px #00bfff;">Ready to Experience the Future?</h2>
+                <p style="color: #aee6ff; font-size: 1.2rem; margin-bottom: 2rem;">
+                    Join the revolution. Start free. Upgrade when you're ready.
+                </p>
+                <a href="index.html#community" class="cta-button">Join Our Newsletter</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>LinuxClicks</h3>
+                    <p>The AI-driven OS that just works</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Product</h4>
+                        <ul>
+                            <li><a href="index.html#features">Features</a></li>
+                            <li><a href="products.html">Products</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Support</h4>
+                        <ul>
+                            <li><a href="mailto:contact@linuxclicks.com">Contact</a></li>
+                            <li><a href="mailto:bugs@linuxclicks.com">Bug Reports</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 LinuxClicks. Open source with ❤️</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

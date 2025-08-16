@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinuxClicks Community - Join the Revolution</title>
+    <meta name="description" content="Join the LinuxClicks community of rebels building computing freedom. Where tech serves people, not profits. Code should be free, AI should amplify humans.">
+    <style>
+        /* Base styling matching index.html */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #f0f8ff;
+            background: #0a0f14;
+            overflow-x: hidden;
+        }
+        
+        /* Header styling matching index.html */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 15, 20, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 191, 255, 0.2);
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .nav-brand {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            height: 48px;
+            width: 48px;
+            margin-right: 12px;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #00bfff;
+            text-shadow: 0 0 10px #00bfff;
+            text-decoration: none;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-link {
+            color: #aee6ff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .nav-link:hover {
+            color: #00bfff;
+            text-shadow: 0 0 8px #00bfff;
+        }
+        
+        /* Container for content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Section styling */
+        .section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            font-size: 3rem;
+            color: #00bfff;
+            text-align: center;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 15px #00bfff;
+        }
+        
+        /* Hero section for community */
+        .community-hero {
+            padding: 8rem 0 4rem 0;
+            text-align: center;
+            background: linear-gradient(135deg, #0a0f14 0%, #1a2332 50%, #0a0f14 100%);
+        }
+        
+        .hero-title {
+            font-size: 4rem;
+            color: #00bfff;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px #00bfff;
+            line-height: 1.1;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #aee6ff;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Vision section */
+        .vision-section {
+            background: rgba(35, 39, 46, 0.8);
+            border-radius: 20px;
+            border: 2px solid #00bfff;
+            padding: 3rem;
+            margin: 3rem 0;
+            box-shadow: 0 0 30px rgba(0, 191, 255, 0.2);
+        }
+        
+        .vision-section h2 {
+            color: #00bfff;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 10px #00bfff;
+            text-align: center;
+        }
+        
+        .vision-section p {
+            color: #aee6ff;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            text-align: center;
+            margin: 0;
+        }
+        
+        /* Building together section */
+        .building-section {
+            background: rgba(35, 39, 46, 0.6);
+            border-radius: 20px;
+            border: 2px solid #00bfff;
+            padding: 3rem;
+            margin: 3rem 0;
+        }
+        
+        .building-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .building-item {
+            background: rgba(24, 28, 34, 0.8);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 191, 255, 0.3);
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .building-item:hover {
+            border-color: #00bfff;
+            box-shadow: 0 10px 25px rgba(0, 191, 255, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        .building-item h3 {
+            color: #00bfff;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 8px #00bfff;
+            font-size: 1.4rem;
+        }
+        
+        .building-item p {
+            color: #aee6ff;
+            line-height: 1.6;
+        }
+        
+        /* Beliefs section */
+        .beliefs-section {
+            background: linear-gradient(135deg, #23272e, #181c22);
+            border: 2px solid #00bfff;
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 3rem 0;
+        }
+        
+        .beliefs-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .belief-item {
+            background: rgba(24, 28, 34, 0.8);
+            border: 1px solid rgba(0, 191, 255, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .belief-item:hover {
+            border-color: #00bfff;
+            box-shadow: 0 10px 25px rgba(0, 191, 255, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        .belief-icon {
+            font-size: 2rem;
+            color: #00bfff;
+        }
+        
+        .belief-text {
+            color: #aee6ff;
+            font-weight: 500;
+        }
+        
+        /* Connection section */
+        .connection-section {
+            background: rgba(35, 39, 46, 0.8);
+            border-radius: 20px;
+            border: 2px solid #00bfff;
+            padding: 3rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        
+        .connection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .connection-item {
+            background: rgba(24, 28, 34, 0.8);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 191, 255, 0.3);
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .connection-item:hover {
+            border-color: #00bfff;
+            box-shadow: 0 10px 25px rgba(0, 191, 255, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        .connection-item h3 {
+            color: #00bfff;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 8px #00bfff;
+        }
+        
+        .connection-item p {
+            color: #aee6ff;
+            line-height: 1.6;
+        }
+        
+        /* Manifesto section */
+        .manifesto-section {
+            background: linear-gradient(45deg, #8b0000, #a52a2a);
+            border: 2px solid #ff6b6b;
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 3rem 0;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(255, 107, 107, 0.3);
+        }
+        
+        .manifesto-section h2 {
+            color: #ff6b6b;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 15px #ff6b6b;
+        }
+        
+        .manifesto-quote {
+            color: #ffcccc;
+            font-size: 1.4rem;
+            font-style: italic;
+            line-height: 1.8;
+            font-weight: 500;
+            margin: 0;
+        }
+        
+        /* Early brigade section */
+        .brigade-section {
+            background: linear-gradient(135deg, #2d5016, #3d6b2c);
+            border: 2px solid #00ff7f;
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 3rem 0;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(0, 255, 127, 0.2);
+        }
+        
+        .brigade-section h2 {
+            color: #00ff7f;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 15px #00ff7f;
+        }
+        
+        .brigade-section p {
+            color: #aaffaa;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        
+        .brigade-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .brigade-item {
+            background: rgba(24, 44, 24, 0.8);
+            border: 1px solid rgba(0, 255, 127, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .brigade-item:hover {
+            border-color: #00ff7f;
+            box-shadow: 0 10px 25px rgba(0, 255, 127, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        .brigade-item strong {
+            color: #00ff7f;
+            font-size: 1.1rem;
+        }
+        
+        .brigade-item span {
+            color: #aaffaa;
+        }
+        
+        /* Revolution callout */
+        .revolution-callout {
+            background: linear-gradient(45deg, #1e3a8a, #1e40af);
+            border: 2px solid #00bfff;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 3rem 0;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 191, 255, 0.3);
+        }
+        
+        .revolution-callout h2 {
+            color: #00bfff;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px #00bfff;
+        }
+        
+        .revolution-callout p {
+            color: #aee6ff;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 0;
+        }
+        
+        /* Footer styling */
+        .footer {
+            background: #0a0f14;
+            border-top: 2px solid #00bfff;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .footer-brand h3 {
+            color: #00bfff;
+            font-size: 1.5rem;
+            text-shadow: 0 0 10px #00bfff;
+        }
+        
+        .footer-brand p {
+            color: #aee6ff;
+            margin-top: 0.5rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 3rem;
+        }
+        
+        .footer-section h4 {
+            color: #00bfff;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section a {
+            color: #aee6ff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: #00bfff;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0, 191, 255, 0.3);
+            color: #aee6ff;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .building-grid,
+            .connection-grid,
+            .beliefs-list,
+            .brigade-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav {
+                padding: 1rem;
+            }
+            
+            .nav-menu {
+                gap: 1rem;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <img src="./Images/Linux Clicks Logo Laptop 1.png" alt="LinuxClicks Logo" class="logo-icon">
+                <a href="index.html" class="logo">LinuxClicks</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="index.html#features" class="nav-link">Features</a></li>
+                <li><a href="products.html" class="nav-link">Products</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="community.html" class="nav-link">Community</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Community Hero Section -->
+        <section class="community-hero">
+            <div class="container">
+                <h1 class="hero-title">Join the Revolution</h1>
+                <p class="hero-subtitle">
+                    Where tech serves people, not profits. The LinuxClicks community is building computing freedom, one rebel at a time.
+                </p>
+            </div>
+        </section>
+
+        <!-- Vision Section -->
+        <section class="section">
+            <div class="container">
+                <div class="vision-section">
+                    <h2>Welcome to the LinuxClicks Revolution</h2>
+                    <p>
+                        The LinuxClicks community is just beginning, but our vision is crystal clear: create a space where you the user, imagines your own future, instead of having it cloned for you by corporate bigshots.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- What We're Building -->
+        <section class="section">
+            <div class="container">
+                <div class="building-section">
+                    <h2 class="section-title">What We're Building Together</h2>
+                    <div class="building-grid">
+                        <div class="building-item">
+                            <h3>The Foundation</h3>
+                            <p>LinuxClicks started with a simple idea—what if an operating system actually served YOU instead of corporate shareholders? Our community is built on users who demand and deserve respect. LinuxClicks is about you.</p>
+                        </div>
+                        <div class="building-item">
+                            <h3>Our Growing Circle</h3>
+                            <p>Join the community of forward-thinking users who believe in computing freedom over corporate control, AI collaboration that serves users, and transparent development with honest communication.</p>
+                        </div>
+                        <div class="building-item">
+                            <h3>User Ownership</h3>
+                            <p>We believe in user ownership of technology choices. Your input directly influences our AI development team. This isn't just feedback—it's collaborative engineering.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Beliefs -->
+        <section class="section">
+            <div class="container">
+                <div class="beliefs-section">
+                    <h2 class="section-title">Our Rebel Manifesto</h2>
+                    <p style="color: #aee6ff; font-size: 1.2rem; text-align: center; margin-bottom: 2rem;">
+                        We're building an OS that answers to *you*—not shareholders. No telemetry. No ads. No compromises. Just a community of rebels who believe:
+                    </p>
+                    
+                    <div class="beliefs-list">
+                        <div class="belief-item">
+                            <div class="belief-icon">🆓</div>
+                            <div class="belief-text">Code should be free (as in freedom *and* beer)</div>
+                        </div>
+                        <div class="belief-item">
+                            <div class="belief-icon">🤖</div>
+                            <div class="belief-text">AI should amplify humans, not replace them</div>
+                        </div>
+                        <div class="belief-item">
+                            <div class="belief-icon">🔍</div>
+                            <div class="belief-text">Transparency isn't optional—it's the foundation</div>
+                        </div>
+                        <div class="belief-item">
+                            <div class="belief-icon">🛡️</div>
+                            <div class="belief-text">Computing freedom over corporate control</div>
+                        </div>
+                        <div class="belief-item">
+                            <div class="belief-icon">👥</div>
+                            <div class="belief-text">AI collaboration that serves users, not exploits them</div>
+                        </div>
+                        <div class="belief-item">
+                            <div class="belief-icon">⚖️</div>
+                            <div class="belief-text">User ownership of technology choices</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why This Isn't Just Another Distro -->
+        <section class="section">
+            <div class="container">
+                <div class="connection-section">
+                    <h2 class="section-title">Why This Isn't Just Another Distro</h2>
+                    <p style="color: #aee6ff; font-size: 1.2rem; margin-bottom: 2rem;">
+                        LinuxClicks is a *movement* disguised as an operating system:
+                    </p>
+                    
+                    <div class="connection-grid">
+                        <div class="connection-item">
+                            <h3>🎯 You Steer Development</h3>
+                            <p>We're just the coders. Your vision drives the roadmap. Every feature serves real user needs, not corporate metrics.</p>
+                        </div>
+                        <div class="connection-item">
+                            <h3>📋 Corporate Playbooks Get Shredded</h3>
+                            <p>No dark patterns. No engagement addiction. No data harvesting. Just honest tools for honest work.</p>
+                        </div>
+                        <div class="connection-item">
+                            <h3>⚔️ Every Line Fights for Sovereignty</h3>
+                            <p>Every commit advances user freedom. Every feature respects your autonomy. Every update serves your needs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Join the Early Brigade -->
+        <section class="section">
+            <div class="container">
+                <div class="brigade-section">
+                    <h2>Join the Early Brigade</h2>
+                    <p>The 1.0 rocket is fueling up. Claim your launch codes:</p>
+                    
+                    <div class="brigade-list">
+                        <div class="brigade-item">
+                            <strong>📩 Burner emails welcome:</strong> <span>admin@linuxclicks.com</span>
+                        </div>
+                        <div class="brigade-item">
+                            <strong>🛠️ Weekly dev logs:</strong> <span>Raw commits, no PR spin</span>
+                        </div>
+                        <div class="brigade-item">
+                            <strong>💬 Rebel chat:</strong> <span>Signal group (DM for invite)</span>
+                        </div>
+                        <div class="brigade-item">
+                            <strong>🚀 Follow development:</strong> <span>Check back regularly for progress updates</span>
+                        </div>
+                        <div class="brigade-item">
+                            <strong>🎯 Share feedback:</strong> <span>Your input influences our AI development team</span>
+                        </div>
+                        <div class="brigade-item">
+                            <strong>🏴‍☠️ Build the family:</strong> <span>Old fashioned values, new possibilities</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Manifesto -->
+        <section class="section">
+            <div class="container">
+                <div class="manifesto-section">
+                    <h2>The Manifesto</h2>
+                    <p class="manifesto-quote">
+                        "We reject the cult of 'growth'. We ship tools, not trackers. If it doesn't respect users, it doesn't belong in our repo."
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Revolution Callout -->
+        <section class="section">
+            <div class="container">
+                <div class="revolution-callout">
+                    <h2>Ready to Join the Revolution?</h2>
+                    <p>The future of computing freedom starts here. LinuxClicks: Where Tech Serves People, Not Profits. Let's Roll.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>LinuxClicks</h3>
+                    <p>The AI-driven OS that just works</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Product</h4>
+                        <ul>
+                            <li><a href="index.html#features">Features</a></li>
+                            <li><a href="products.html">Products</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Support</h4>
+                        <ul>
+                            <li><a href="mailto:contact@linuxclicks.com">Contact</a></li>
+                            <li><a href="mailto:bugs@linuxclicks.com">Bug Reports</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 LinuxClicks. Open source with ❤️</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

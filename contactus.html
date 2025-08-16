@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact LinuxClicks - Your Feedback Shapes the Future</title>
+    <meta name="description" content="Contact LinuxClicks with feedback, bug reports, or feature requests. Our AI team uses your input to continuously improve the computing freedom experience.">
+    <style>
+        /* Base styling matching index.html */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #f0f8ff;
+            background: #0a0f14;
+            overflow-x: hidden;
+        }
+        
+        /* Header styling matching index.html */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 15, 20, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 191, 255, 0.2);
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .nav-brand {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            height: 48px;
+            width: 48px;
+            margin-right: 12px;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #00bfff;
+            text-shadow: 0 0 10px #00bfff;
+            text-decoration: none;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-link {
+            color: #aee6ff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .nav-link:hover {
+            color: #00bfff;
+            text-shadow: 0 0 8px #00bfff;
+        }
+        
+        /* Container for content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Section styling */
+        .section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            font-size: 3rem;
+            color: #00bfff;
+            text-align: center;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 15px #00bfff;
+        }
+        
+        /* Hero section for contact */
+        .contact-hero {
+            padding: 8rem 0 4rem 0;
+            text-align: center;
+            background: linear-gradient(135deg, #0a0f14 0%, #1a2332 50%, #0a0f14 100%);
+        }
+        
+        .hero-title {
+            font-size: 4rem;
+            color: #00bfff;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px #00bfff;
+            line-height: 1.1;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #aee6ff;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Mission section */
+        .mission-section {
+            background: rgba(35, 39, 46, 0.8);
+            border-radius: 20px;
+            border: 2px solid #00bfff;
+            padding: 3rem;
+            margin: 3rem 0;
+            box-shadow: 0 0 30px rgba(0, 191, 255, 0.2);
+            text-align: center;
+        }
+        
+        .mission-section h2 {
+            color: #00bfff;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 10px #00bfff;
+        }
+        
+        .mission-section p {
+            color: #aee6ff;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .mission-section p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Contact methods section */
+        .contact-methods {
+            background: rgba(35, 39, 46, 0.6);
+            border-radius: 20px;
+            border: 2px solid #00bfff;
+            padding: 3rem;
+            margin: 3rem 0;
+        }
+        
+        .contact-methods h2 {
+            color: #00bfff;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 10px #00bfff;
+            text-align: center;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-item {
+            background: rgba(24, 28, 34, 0.8);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 191, 255, 0.3);
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            border-color: #00bfff;
+            box-shadow: 0 10px 25px rgba(0, 191, 255, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        .contact-icon {
+            font-size: 3rem;
+            color: #00bfff;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-item h3 {
+            color: #00bfff;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 8px #00bfff;
+            font-size: 1.3rem;
+        }
+        
+        .contact-item p {
+            color: #aee6ff;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-email {
+            color: #00bfff;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-email:hover {
+            text-shadow: 0 0 10px #00bfff;
+        }
+        
+        /* Contact form section */
+        .form-section {
+            background: linear-gradient(135deg, #23272e, #181c22);
+            border: 2px solid #00bfff;
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 3rem 0;
+        }
+        
+        .form-section h2 {
+            color: #00bfff;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 10px #00bfff;
+            text-align: center;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 2rem;
+        }
+        
+        .form-label {
+            display: block;
+            color: #00bfff;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 5px #00bfff;
+        }
+        
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            background: #181c22;
+            border: 2px solid #00bfff;
+            border-radius: 8px;
+            padding: 1rem;
+            color: #f0f8ff;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: #0099cc;
+            box-shadow: 0 0 15px rgba(0, 191, 255, 0.3);
+        }
+        
+        .form-input::placeholder,
+        .form-textarea::placeholder {
+            color: #666;
+        }
+        
+        .form-textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        
+        .form-submit {
+            background: linear-gradient(45deg, #00bfff, #0099cc);
+            color: #0a0f14;
+            border: none;
+            border-radius: 50px;
+            padding: 1rem 3rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 191, 255, 0.3);
+            width: 100%;
+        }
+        
+        .form-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 191, 255, 0.4);
+            background: linear-gradient(45deg, #0099cc, #007acc);
+        }
+        
+        /* Response time section */
+        .response-section {
+            background: linear-gradient(45deg, #2d5016, #3d6b2c);
+            border: 2px solid #00ff7f;
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 3rem 0;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 255, 127, 0.2);
+        }
+        
+        .response-section h3 {
+            color: #00ff7f;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px #00ff7f;
+        }
+        
+        .response-section p {
+            color: #aaffaa;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin: 0;
+        }
+        
+        /* Tagline callout */
+        .tagline-callout {
+            background: linear-gradient(45deg, #1e3a8a, #1e40af);
+            border: 2px solid #00bfff;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 3rem 0;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 191, 255, 0.3);
+        }
+        
+        .tagline-callout p {
+            color: #00bfff;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-shadow: 0 0 10px #00bfff;
+            margin: 0;
+            font-style: italic;
+        }
+        
+        /* Footer styling */
+        .footer {
+            background: #0a0f14;
+            border-top: 2px solid #00bfff;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .footer-brand h3 {
+            color: #00bfff;
+            font-size: 1.5rem;
+            text-shadow: 0 0 10px #00bfff;
+        }
+        
+        .footer-brand p {
+            color: #aee6ff;
+            margin-top: 0.5rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 3rem;
+        }
+        
+        .footer-section h4 {
+            color: #00bfff;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section a {
+            color: #aee6ff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: #00bfff;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0, 191, 255, 0.3);
+            color: #aee6ff;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav {
+                padding: 1rem;
+            }
+            
+            .nav-menu {
+                gap: 1rem;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <img src="./Images/Linux Clicks Logo Laptop 1.png" alt="LinuxClicks Logo" class="logo-icon">
+                <a href="index.html" class="logo">LinuxClicks</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="index.html#features" class="nav-link">Features</a></li>
+                <li><a href="products.html" class="nav-link">Products</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="community.html" class="nav-link">Community</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Contact Hero Section -->
+        <section class="contact-hero">
+            <div class="container">
+                <h1 class="hero-title">Get in Touch</h1>
+                <p class="hero-subtitle">
+                    Your feedback is mission critical. Help us shape the future of computing freedom.
+                </p>
+            </div>
+        </section>
+
+        <!-- Mission Section -->
+        <section class="section">
+            <div class="container">
+                <div class="mission-section">
+                    <h2>Your Voice Shapes the Future</h2>
+                    <p>
+                        At LinuxClicks, we measure success in user satisfaction. Your feedback is mission critical.
+                    </p>
+                    <p>
+                        Our AI team compiles all of your responses into a database and uses that information to continuously improve the user experience. Our vision is to create an optimum computing environment for all users, everywhere. We welcome your participation with gratitude.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Methods -->
+        <section class="section">
+            <div class="container">
+                <div class="contact-methods">
+                    <h2>How to Reach Us</h2>
+                    <div class="contact-grid">
+                        <div class="contact-item">
+                            <div class="contact-icon">💬</div>
+                            <h3>General Questions & Feedback</h3>
+                            <p>Have questions about LinuxClicks or want to share your thoughts? We're listening.</p>
+                            <a href="mailto:admin@linuxclicks.com?subject=General Inquiry" class="contact-email">admin@linuxclicks.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">🐛</div>
+                            <h3>Bug Reports & Technical Issues</h3>
+                            <p>Found a problem? Help us squash it! Your bug reports make LinuxClicks better.</p>
+                            <a href="mailto:admin@linuxclicks.com?subject=Bug Report" class="contact-email">admin@linuxclicks.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">💡</div>
+                            <h3>Feature Requests & Suggestions</h3>
+                            <p>Got an idea for a killer feature? Share your vision with our AI development team.</p>
+                            <a href="mailto:admin@linuxclicks.com?subject=Feature Request" class="contact-email">admin@linuxclicks.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">🤝</div>
+                            <h3>Media & Partnership Inquiries</h3>
+                            <p>Press, partnerships, or collaboration opportunities? Let's build something revolutionary together.</p>
+                            <a href="mailto:admin@linuxclicks.com?subject=Partnership Inquiry" class="contact-email">admin@linuxclicks.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form -->
+        <section class="section">
+            <div class="container">
+                <div class="form-section">
+                    <h2>Send Us a Message</h2>
+                    <form class="contact-form" action="mailto:admin@linuxclicks.com" method="post" enctype="text/plain">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Your Name</label>
+                            <input type="text" id="name" name="name" class="form-input" placeholder="Enter your name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="your@email.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="category" class="form-label">Message Category</label>
+                            <select id="category" name="category" class="form-select" required>
+                                <option value="">Select a category</option>
+                                <option value="general">General Questions & Feedback</option>
+                                <option value="bug">Bug Reports & Technical Issues</option>
+                                <option value="feature">Feature Requests & Suggestions</option>
+                                <option value="media">Media & Partnership Inquiries</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" id="subject" name="subject" class="form-input" placeholder="Brief description of your message" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="form-label">Your Message</label>
+                            <textarea id="message" name="message" class="form-textarea" placeholder="Tell us what's on your mind..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="form-submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Response Time -->
+        <section class="section">
+            <div class="container">
+                <div class="response-section">
+                    <h3>Response Time</h3>
+                    <p>We typically respond within 24-48 hours. Your input helps shape the future of computing freedom.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tagline Callout -->
+        <section class="section">
+            <div class="container">
+                <div class="tagline-callout">
+                    <p>"When LinuxClicks—LinuxSticks"</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>LinuxClicks</h3>
+                    <p>The AI-driven OS that just works</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Product</h4>
+                        <ul>
+                            <li><a href="index.html#features">Features</a></li>
+                            <li><a href="products.html">Products</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Support</h4>
+                        <ul>
+                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="mailto:admin@linuxclicks.com">Email Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 LinuxClicks. Open source with ❤️</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
